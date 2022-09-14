@@ -15,11 +15,6 @@ spring:
         locator:
           enabled: true
           predicates:
-          - name: Path
-            args:
-              pattern: "'/test/**'"
-          filters:
-          - name: RewritePath
-            args:
-              regexp: "'/test/(?<name>.*)'"
-              replacement: "'test/Ahmed'"
+          - Path=/test/**
+#           filters:
+#           - RewritePath=/test/(?<segment>.*),/test/ahmed
