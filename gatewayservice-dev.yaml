@@ -17,9 +17,9 @@ spring:
           predicates:
           - name: Path
             args:
-              pattern: "'/api/gateway/**'"
-          filters:
-          - name: RewritePath
-            args:
-              regexp: "'/api/gateway/(?<name>.*)'"
-              replacement: "'test/${name}'"
+              pattern: "'/test/**'"
+#           filters:
+#           - name: RewritePath
+#             args:
+#               regexp: "'/test/(?<name>.*)'"
+#               replacement: "'test/Ahmed'"
