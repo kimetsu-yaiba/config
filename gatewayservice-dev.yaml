@@ -16,5 +16,5 @@ spring:
           enabled: true
           predicates:
           - Path=/test/**
-#           filters:
-#           - RewritePath=/test/(?<segment>.*),/test/ahmed
+#         filters:
+#         - RewritePath=/test/(?<segment>.*),/test/ahmed
