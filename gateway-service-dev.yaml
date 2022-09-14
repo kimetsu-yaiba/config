@@ -1,21 +1,4 @@
-server:
-  port: 8443
-  http:
-    port: 8080
-  servlet:
-  # enable HTTP2
-#  http2:
-#    enabled: true
-  # enable compression
-
-# ... removed for brevity
-
 spring:
-  application:
-    name: api-gateway
-  cloud:
-    consul:
-      enabled: true
     gateway:
 #      httpclient:
 #        ssl:
@@ -29,7 +12,6 @@ spring:
       #   filters:
       #   - RewritePath="'/**'", "/ui"
       discovery:
-        instanceId: ${spring.application.name}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}
         locator:
           enabled: true
           predicates:
@@ -39,5 +21,5 @@ spring:
           filters:
           - name: RewritePath
             args:
-              regexp: "'/api/' + serviceId + '/(?<remaining>.*)'"
-              replacement: "'/${remaining}'"
+              regexp: "'/api/' + serviceId + '/(?<name>.*)'"
+              replacement: "'test/${name}'"
