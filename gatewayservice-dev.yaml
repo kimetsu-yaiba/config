@@ -1,9 +1,14 @@
 spring:
   cloud:
     gateway:
-      discovery:
-        locator:
-          predicates: 
-          - Path="'/'+serviceId+'/test/**'"
-          filters:
-          - RewritePath="'/'+serviceId+'/test/(?<remaining>.*)'",'/'+"serviceId+'/test/Ahmed'"
+      locator:
+        enabled: true
+        predicates:
+          - name: Path
+            args:
+              pattern: "'test/**'"
+        filters:
+          - name: RewritePath
+            args:
+              regexp: "'test/(?<remaining>.*)'"
+              replacement: "'test/Ahmed'"
