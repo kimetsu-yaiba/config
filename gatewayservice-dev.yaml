@@ -1,14 +1,15 @@
 spring:
+  main:
+    web-application-type: reactive
   cloud:
     gateway:
-      locator:
-        enabled: true
-        predicates:
-          - name: Path
-            args:
-              pattern: "'test/**'"
-#         filters:
-#           - name: RewritePath
-#             args:
-#               regexp: "'test/(?<remaining>.*)'"
-#               replacement: "'test/Ahmed'"
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: democlient1-service
+          uri: lb://democlient1
+          predicates:
+            - Path=/test/**
+          filters:
+            - RewritePath=/test/(?<path>.*), /test/Ahmed
