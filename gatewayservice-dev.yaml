@@ -7,8 +7,8 @@ spring:
           - name: Path
             args:
               pattern: "'test/**'"
-        filters:
-          - name: RewritePath
-            args:
-              regexp: "'test/(?<remaining>.*)'"
-              replacement: "'test/Ahmed'"
+#         filters:
+#           - name: RewritePath
+#             args:
+#               regexp: "'test/(?<remaining>.*)'"
+#               replacement: "'test/Ahmed'"
